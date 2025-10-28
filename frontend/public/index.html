@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Soutien Ensemble - Espace de soutien psychologique</title>
+    <style>
+        /* Styles de chargement */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+        }
+        
+        #root {
+            min-height: 100vh;
+        }
+        
+        .loading {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+        }
+        
+        .loading h2 {
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .spinner {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <noscript>
+        <div style="padding: 2rem; text-align: center; background: #ffebee; color: #c62828;">
+            <h2>JavaScript requis</h2>
+            <p>Veuillez activer JavaScript pour utiliser Soutien Ensemble.</p>
+        </div>
+    </noscript>
+    <div id="root">
+        <div class="loading">
+            <div class="spinner">⏳</div>
+            <h2>Chargement de Soutien Ensemble</h2>
+            <p>Votre espace de soutien arrive...</p>
+        </div>
+    </div>
+</body>
+</html>

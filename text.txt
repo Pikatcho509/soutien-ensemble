@@ -1,0 +1,15 @@
+
+## 🚀 Installation
+
+### Prérequis
+- Node.js (v16 ou supérieur)
+- MongoDB
+- npm ou yarn
+
+### 1. Backend
+```bash
+cd backend
+npm install
+cp .env.example .env
+# Configurer les variables d'environnement dans .env
+npm run dev
