@@ -1,5 +1,6 @@
 {
   "name": "soutien-ensemble-frontend",
+"homepage": "https://pikatcho509.github.io/soutien-ensemble",
   "version": "1.0.0",
   "scripts": {
     "start": "react-scripts start",
