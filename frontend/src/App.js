@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
+// Configuration API - Modifie l'URL Render ici si nécessaire
+const API_URL = window.location.hostname === 'localhost' 
+  ? 'http://localhost:5000' 
+  : 'https://soutien-api.onrender.com'; // À remplacer par ton URL Render réelle
+
 function App() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -46,7 +51,7 @@ function App() {
   const fetchPosts = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:5000/api/posts');
+      const response = await fetch(`${API_URL}/api/posts`);
       const data = await response.json();
       if (data.success) setPosts(data.posts);
     } catch (error) {
@@ -58,7 +63,7 @@ function App() {
 
   const fetchSupportMessage = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/support-message');
+      const response = await fetch(`${API_URL}/api/support-message`);
       const data = await response.json();
       if (data.success) setSupportMessage(data.message);
     } catch (error) {
@@ -69,7 +74,7 @@ function App() {
 
   const fetchComments = async (postId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/posts/${postId}/comments`);
+      const response = await fetch(`${API_URL}/api/posts/${postId}/comments`);
       const data = await response.json();
       if (data.success) {
         setComments(prev => ({ ...prev, [postId]: data.comments }));
@@ -81,7 +86,7 @@ function App() {
 
   const handleSupport = async (postId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/posts/${postId}/support`, {
+      const response = await fetch(`${API_URL}/api/posts/${postId}/support`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }
       });
@@ -99,7 +104,7 @@ function App() {
 
   const handleCreatePost = async (formData) => {
     try {
-      const response = await fetch('http://localhost:5000/api/posts', {
+      const response = await fetch(`${API_URL}/api/posts`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -122,7 +127,7 @@ function App() {
     }
     
     try {
-      const response = await fetch('http://localhost:5000/api/comments', {
+      const response = await fetch(`${API_URL}/api/comments`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
