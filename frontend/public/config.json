@@ -1,0 +1,5 @@
+{
+  "apiUrl": "https://soutien-api.onrender.com",
+  "env": "development",
+  "basePath": "/soutien-ensemble"
+}

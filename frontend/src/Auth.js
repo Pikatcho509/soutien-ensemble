@@ -28,7 +28,7 @@ function Auth({ onLogin, onClose }) {
     try {
       if (isLogin) {
         // Connexion
-        const response = await fetch('http://localhost:5000/api/auth/login', {
+        const response = await fetch('https://votre-backend.onrender.com/api/auth/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ function Auth({ onLogin, onClose }) {
           return;
         }
 
-        const response = await fetch('http://localhost:5000/api/auth/register', {
+        const response = await fetch('https://votre-backend.onrender.com/api/auth/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ function Auth({ onLogin, onClose }) {
         
         if (data.success) {
           // Auto-login après inscription
-          const loginResponse = await fetch('http://localhost:5000/api/auth/login', {
+          const loginResponse = await fetch('https://votre-backend.onrender.com/api/auth/login', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

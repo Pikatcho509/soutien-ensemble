@@ -1,0 +1,8 @@
+// Import HashRouter au lieu de BrowserRouter si nécessaire
+import { HashRouter as Router } from 'react-router-dom';
+
+// OU pour BrowserRouter avec basename
+import { BrowserRouter } from 'react-router-dom';
+<BrowserRouter basename="/soutien-ensemble">
+  <App />
+</BrowserRouter>
