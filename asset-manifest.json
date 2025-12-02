@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/soutien-ensemble/static/css/main.40e8ac3a.css",
+    "main.js": "/soutien-ensemble/static/js/main.b390df3a.js",
+    "index.html": "/soutien-ensemble/index.html",
+    "main.40e8ac3a.css.map": "/soutien-ensemble/static/css/main.40e8ac3a.css.map",
+    "main.b390df3a.js.map": "/soutien-ensemble/static/js/main.b390df3a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.40e8ac3a.css",
+    "static/js/main.b390df3a.js"
+  ]
+}
