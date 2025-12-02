@@ -3,8 +3,8 @@ import './App.css';
 
 // Configuration API - Modifie l'URL Render ici si nécessaire
 const API_URL = window.location.hostname === 'localhost' 
-  ? 'http://localhost:5000' 
-  : 'https://soutien-api.onrender.com'; // À remplacer par ton URL Render réelle
+  ? '   → http://localhost:10000/api/health' 
+  : 'https://soutien-api.onrender.com/'; // À remplacer par ton URL Render réelle
 
 function App() {
   const [posts, setPosts] = useState([]);
