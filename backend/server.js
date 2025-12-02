@@ -37,6 +37,23 @@ let posts = [
     createdAt: new Date(Date.now() - 5 * 60 * 60 * 1000)
   }
 ];
+// Données pour les commentaires (déplacées en haut pour éviter les ReferenceError)
+let comments = [
+  {
+    id: 1,
+    postId: 1,
+    author: "Supporteur",
+    content: "Je comprends ce que vous traversez. Vous n'êtes pas seul 🤗",
+    createdAt: new Date()
+  },
+  {
+    id: 2,
+    postId: 1, 
+    author: "Anonyme",
+    content: "Chaque jour est une nouvelle chance. Courage !",
+    createdAt: new Date()
+  }
+];
 // Ajoutez cette fonction AVANT les routes
 function detectEmergency(content) {
   const emergencyKeywords = [
@@ -185,35 +202,9 @@ app.get('/api/posts/:id', (req, res) => {
 });
 
 // Créer une nouvelle publication
-app.post('/api/posts', (req, res) => {
-  const { title, content, mood = 'triste', author = 'Anonyme' } = req.body;
-  
-  // Validation basique
-  if (!title || !content) {
-    return res.status(400).json({
-      success: false,
-      message: 'Le titre et le contenu sont obligatoires'
-    });
-  }
-  
-  const newPost = {
-    id: posts.length + 1,
-    title: title.trim(),
-    content: content.trim(),
-    author: author.trim() || 'Anonyme',
-    mood: mood,
-    supportCount: 0,
-    createdAt: new Date()
-  };
-  
-  posts.push(newPost);
-  
-  res.status(201).json({
-    success: true,
-    message: 'Publication créée avec succès!',
-    post: newPost
-  });
-});
+/* La route de création de posts précédente a été supprimée car
+   une autre version plus complète (avec détection d'urgence)
+   est déjà définie plus haut. */
 
 app.post('/api/comments', (req, res) => {
   const { postId, content, author = 'Visiteur' } = req.body;  // Changé à "Visiteur"
@@ -281,23 +272,7 @@ app.get('/api/stats', (req, res) => {
     }
   });
 });
-// Données pour les commentaires
-let comments = [
-  {
-    id: 1,
-    postId: 1,
-    author: "Supporteur",
-    content: "Je comprends ce que vous traversez. Vous n'êtes pas seul 🤗",
-    createdAt: new Date()
-  },
-  {
-    id: 2,
-    postId: 1, 
-    author: "Anonyme",
-    content: "Chaque jour est une nouvelle chance. Courage !",
-    createdAt: new Date()
-  }
-];
+
 
 
 // ==================== DÉMARRAGE DU SERVEUR ====================

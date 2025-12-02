@@ -14,14 +14,18 @@ function App() {
   const [supportMessage, setSupportMessage] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Images motivantes sans photos externes
+  // Images motivantes (images libres de droits via Unsplash)
   const motivationalImages = [
-    { emoji: "🌅", text: "Nouveau jour, nouvelles opportunités" },
-    { emoji: "🌈", text: "Après la pluie vient le beau temps" },
-    { emoji: "💪", text: "Vous êtes plus fort que vous ne le pensez" },
-    { emoji: "✨", text: "Votre lumière intérieure brille toujours" },
-    { emoji: "🌱", text: "Chaque jour est une nouvelle croissance" },
-    { emoji: "🦋", text: "La transformation est possible" }
+    { url: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=1b6e4a2d7f3a9b9c6f3b0d8b9a9a1a4b',
+      text: "Nouveau jour, nouvelles opportunités" },
+    { url: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=2d5f6a1b3f4c5e6a7b8c9d0e1f2a3b4c',
+      text: "Après la pluie vient le beau temps" },
+    { url: 'https://images.unsplash.com/photo-1482192505345-5655af888cc4?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=8a9b7c6d5e4f3a2b1c0d9e8f7a6b5c4d',
+      text: "Vous êtes plus fort que vous ne le pensez" },
+    { url: 'https://images.unsplash.com/photo-1495567720989-cebdbdd97913?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=3c2b1a9f8e7d6c5b4a3b2c1d0e9f8a7b',
+      text: "Votre lumière intérieure brille toujours" },
+    { url: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d',
+      text: "Chaque jour est une nouvelle croissance" }
   ];
 
   // Messages de bienvenue motivants
@@ -245,11 +249,18 @@ function App() {
             {/* Images motivantes interactives */}
             <div className="motivational-display">
               <div className="motivational-card">
-                <div className="motivational-emoji">{motivationalImages[currentImageIndex].emoji}</div>
-                <p className="motivational-text">{motivationalImages[currentImageIndex].text}</p>
-                <button onClick={nextMotivationalImage} className="btn-next-motivation">
-                  ➡️ Message suivant
-                </button>
+                {motivationalImages[currentImageIndex].url ? (
+                  <div className="motivational-image">
+                    <img src={motivationalImages[currentImageIndex].url} alt={motivationalImages[currentImageIndex].text} />
+                    <small>{motivationalImages[currentImageIndex].text}</small>
+                  </div>
+                ) : (
+                  <div className="motivational-emoji-large">{motivationalImages[currentImageIndex].emoji}</div>
+                )}
+                <div className="motivational-controls">
+                  <button onClick={() => setCurrentImageIndex((currentImageIndex - 1 + motivationalImages.length) % motivationalImages.length)} className="btn-prev-motivation">⬅️</button>
+                  <button onClick={nextMotivationalImage} className="btn-next-motivation">➡️</button>
+                </div>
               </div>
             </div>
 
